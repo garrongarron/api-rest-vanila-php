@@ -1,25 +1,20 @@
 <?php
 
-$model = null;
-$data = json_decode(file_get_contents('php://input'));
-
-function check($endpoint, $callback)
+function router($endpoint, $callback)
 {
     if (substr($_SERVER['REQUEST_URI'], 0, strlen($endpoint)) == $endpoint) {
         $callback();
     }
 }
 
-check('/product', function () use (&$model) {
-    $model = Product::instance();
-});
-
+include_once "Routes.php";
 
 function getId()
 {
     return explode("/", $_SERVER['REQUEST_URI'])[2];
 }
 
+$data = json_decode(file_get_contents('php://input'));
 switch ($_SERVER['REQUEST_METHOD']) {
     case 'GET':
         echo $model->get(getId());
