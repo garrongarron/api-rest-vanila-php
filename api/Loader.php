@@ -6,5 +6,4 @@ require_once "Model.php";
 require_once "ModelInterface.php";
 require_once "Product.php";
 
-
 require_once "Router.php";

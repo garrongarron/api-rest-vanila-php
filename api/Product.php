@@ -59,6 +59,7 @@ class Product extends Model implements ModelInterface
             http_response_code(204);
             return $this->toJson($this->db->query($query));
         }
+        http_response_code(400);
         return $this->toJson();
     }
 
