@@ -3,7 +3,7 @@ class EmailSender
 {
     public $subject;
     public $to;
-    public $messaje;
+    public $message;
 
     public function setSubject($subject)
     {
@@ -15,9 +15,9 @@ class EmailSender
         $this->to = $to;
     }
 
-    public function setMessage($messaje)
+    public function setMessage($message)
     {
-        $this->messaje = $messaje;
+        $this->message = $message;
     }
 
     public function sendEmail()

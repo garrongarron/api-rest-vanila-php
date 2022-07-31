@@ -5,7 +5,7 @@ router('/api/mail', function(){
     $data = getBody();
     $emailSender->setSubject($data->subject);
     $emailSender->setTo($data->to);
-    $emailSender->setMessage($data->messaje);
+    $emailSender->setMessage($data->message);
     $emailSender->sendEmail();
 })('POST');
 

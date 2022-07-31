@@ -1,9 +1,10 @@
-POST http://localhost:8080/api/mail
-content-type: application/json
+###
+POST http://localhost:8080/api/mail/
 Authorization: Bearer secret.jwt.token
+content-type: application/json
 
 {
-    "to": "someone@example.com",
-    "subject": "subject",
-    "message": "message",
+    "to": "federicozacahotmail.com",
+    "subject": "Information",
+    "message": "A new message has been created"
 }
