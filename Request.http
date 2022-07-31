@@ -1,23 +1,30 @@
 GET http://localhost:8080/product
+Authorization: Bearer secret.jwt.token
 
 ###
 POST http://localhost:8080/product
 content-type: application/json
+Authorization: Bearer secret.jwt.token
 
 {
     "description": "description",
     "price": "3"
 }
+
 ###
 PATCH http://localhost:8080/product/1
 content-type: application/json
+Authorization: Bearer secret.jwt.token
 
 {
     "description": "description",
     "price": "3000"
 }
+
 ###
 GET http://localhost:8080/product/1
+Authorization: Bearer secret.jwt.token
 
 ###
 DELETE http://localhost:8080/product/1
+Authorization: Bearer secret.jwt.token
