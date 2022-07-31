@@ -1,6 +1,6 @@
 <?php
 
-class Product extends JsonConverter implements ModelInterface
+class Product extends JsonConverterSingleton implements ModelInterface
 {
     private $table = 'product';
 

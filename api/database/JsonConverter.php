@@ -1,6 +1,6 @@
 <?php
 
-class JsonConverter
+class JsonConverterSingleton
 {
     static public $DB = null;
     static public function instance()
