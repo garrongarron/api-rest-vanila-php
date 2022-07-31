@@ -1,6 +1,6 @@
 <?php
 
-class Model
+class JsonConverter
 {
     static public $DB = null;
     static public function instance()

@@ -1,6 +1,6 @@
 <?php
 
-class Product extends Model implements ModelInterface
+class Product extends JsonConverter implements ModelInterface
 {
     private $table = 'product';
 
