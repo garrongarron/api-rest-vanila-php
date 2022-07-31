@@ -14,9 +14,15 @@ class Product extends Model implements ModelInterface
             create_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP
         )");
     }
-
-    public function get($id = null)
+    
+    public function scape($data)
     {
+        return mysqli_real_escape_string($this->db, (string)$data);
+    }
+
+    public function get()
+    {
+        $id = getId();
         $query = "Select * from $this->table";
         if ($id) {
             $query = "Select * from $this->table 
@@ -31,8 +37,9 @@ class Product extends Model implements ModelInterface
         return $this->toJson($resutl);
     }
 
-    public function del($id)
+    public function del()
     {
+        $id = getId();
         if ($id) {
             $query = "delete from $this->table where id = '$id'";
             http_response_code(204);
@@ -41,12 +48,11 @@ class Product extends Model implements ModelInterface
         return $this->toJson();
     }
 
-    public function scape($data)
+    
+    public function patch()
     {
-        return mysqli_real_escape_string($this->db, (string)$data);
-    }
-    public function patch($id, $data)
-    {
+        $id = getId();
+        $data = getBody();
         $description = $this->scape($data->description);
         $price = $this->scape($data->price);
         if ($id) {
@@ -63,8 +69,9 @@ class Product extends Model implements ModelInterface
         return $this->toJson();
     }
 
-    public function post($data)
+    public function post()
     {
+        $data = getBody();
         $description = $this->scape($data->description);
         $price = $this->scape($data->price);
         if ($data) {

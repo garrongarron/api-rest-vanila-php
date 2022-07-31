@@ -2,8 +2,8 @@
 
 interface ModelInterface
 {
-    public function get($id = null);
-    public function del($id);
-    public function patch($id, $data);
-    public function post($data);
+    public function get();
+    public function del();
+    public function patch();
+    public function post();
 }
