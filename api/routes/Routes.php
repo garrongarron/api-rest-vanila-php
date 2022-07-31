@@ -1,7 +1,12 @@
 <?php
 
-router('/product', function(){ return Product::instance()->get();})('GET');
-router('/product', function(){ return Product::instance()->post();})('POST');
-router('/product', function(){ return Product::instance()->patch();})('PATCH');
-router('/product', function(){ return Product::instance()->del();})('DELETE');
+router('/api/mail', function(){ 
+    $emailSender = new EmailSender();
+    $data = getBody();
+    $emailSender->setSubject($data->subject);
+    $emailSender->setTo($data->to);
+    $emailSender->setMessage($data->messaje);
+    $emailSender->sendEmail();
+})('POST');
+
 
