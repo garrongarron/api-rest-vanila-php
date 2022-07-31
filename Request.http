@@ -1,0 +1,23 @@
+GET http://localhost:8080/product
+
+###
+POST http://localhost:8080/product
+content-type: application/json
+
+{
+    "description": "description",
+    "price": "3"
+}
+###
+PATCH http://localhost:8080/product/3
+content-type: application/json
+
+{
+    "description": "description",
+    "price": "3000"
+}
+###
+GET http://localhost:8080/product/3
+
+###
+DELETE http://localhost:8080/product/2

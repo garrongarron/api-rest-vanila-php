@@ -27,7 +27,7 @@ class Product extends Model implements ModelInterface
             http_response_code(404);
             return $this->toJson();
         }
-        http_response_code(302);
+        http_response_code(200);
         return $this->toJson($resutl);
     }
 
