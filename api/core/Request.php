@@ -6,7 +6,12 @@ function getId()
 }
 
 function getBody(){
-    return json_decode(file_get_contents('php://input'));
+    $data = json_decode(file_get_contents('php://input'));
+    if(json_last_error() != 0) {
+        http_response_code(500);
+        die(json_encode(array("message" => "Couldn't decode JSON")));
+    }
+    return $data;
 }
 
 function getRequestHeader(){

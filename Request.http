@@ -1,10 +1,44 @@
-###
+
+### OK || 500
 POST http://localhost:8080/api/mail/
 Authorization: Bearer secret.jwt.token
 content-type: application/json
 
 {
-    "to": "federicozacahotmail.com",
-    "subject": "Information",
+    "to": "example@domain.com",
+    "subject": "Informacion",
     "message": "A new message has been created"
+}
+
+
+### Couldn't decode JSON
+POST http://localhost:8080/api/mail/
+Authorization: Bearer secret.jwt.token
+content-type: application/json
+
+{
+    "to": "example@domain.com",
+    "subject": "asd",
+    "message": "A new message has been created",
+}
+
+### Bad Request
+POST http://localhost:8080/api/mail/
+Authorization: Bearer secret.jwt.token
+content-type: application/json
+
+{
+    "to": "",
+    "subject": "",
+    "message": ""
+}
+
+
+### Bad Request
+POST http://localhost:8080/api/mail/
+Authorization: Bearer secret.jwt.token
+content-type: application/json
+
+{
+    "to": "example@domain.com"
 }

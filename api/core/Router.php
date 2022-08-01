@@ -7,7 +7,12 @@ function router($endpoint, $callback)
             return;
         }
         if($_SERVER['REQUEST_METHOD'] == $method){
-            echo $callback();
+            $out = $callback();
+            if( $out === false){
+                http_response_code(400);
+                die(json_encode(array("message" => "Bad request")));
+            }
+            echo $out;
         }
     };
 }
